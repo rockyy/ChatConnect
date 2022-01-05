@@ -1,3 +1,6 @@
 {
-    
+  "message": "Message",
+  "start chat": "Start Chat",
+  "not a valid number": "Not a valid number",
+  "whatsapp not installed": "Whatsapp not installed"
 }

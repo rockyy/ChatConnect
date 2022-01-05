@@ -1,14 +1,19 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
+
+const {width: screenWidth} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   noDataLayout: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginHorizontal: 3,
+  container: {
+    flex: 1,
   },
+  phoneInput: {
+    marginTop: 50,
+    marginLeft: 20,
+    width: screenWidth - 40,
+  },
+  textArea: {},
 });

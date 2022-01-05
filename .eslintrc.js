@@ -5,6 +5,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'no-null'],
   rules: {
     "no-use-before-define": "off",
+    "global-require": 0,
     "@typescript-eslint/no-use-before-define": ["error", { "functions": true, "classes": true, "variables": false }],
     'no-null/no-null': ['error'],
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
@@ -42,6 +43,9 @@ module.exports = {
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // don't use unused var except with _ prefix
     '@typescript-eslint/no-explicit-any': ['error'], // forbid to use 'any' type
   },
+  globals: {
+    JSX: true,
+    },
   settings: {
     'import/resolver': {
       node: {

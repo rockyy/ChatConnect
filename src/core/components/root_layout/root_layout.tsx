@@ -9,10 +9,9 @@ type Props = {
 
 export const RootLayout = (props: Props): JSX.Element => {
   const {children} = props;
-  const mode = 'dark';
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={mode === 'dark' ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle='light-content' />
       <SafeAreaView style={[styles.top]} />
       <SafeAreaView style={[styles.bottom]}>{children}</SafeAreaView>
     </View>
