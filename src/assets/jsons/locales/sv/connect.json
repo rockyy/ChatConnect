@@ -1,3 +1,6 @@
 {
-    
+  "message": "Meddelande",
+  "start chat": "Starta chatt",
+  "not a valid number": "Inte ett giltigt nummer",
+  "whatsapp not installed": "Whatsapp not installed"
 }

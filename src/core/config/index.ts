@@ -7,5 +7,5 @@ export const config = {
     {id: 'en', name: 'English'},
     {id: 'sv', name: 'Svenska'},
   ],
-  defaultLang: 'sv',
+  defaultLang: 'en',
 };
