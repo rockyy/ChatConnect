@@ -22,7 +22,7 @@ export const Navigation = (props: Props): JSX.Element => {
           tabBarIcon: ({color}) => <Icon icon={route.name} size={42} color={color} />,
           tabBarActiveTintColor: 'rgba(155,249,88,1)',
           tabBarInactiveTintColor: 'gray',
-          headerShown: (route.name == 'connect' ? true : false),
+          headerShown: route.name === 'connect',
         })}>
         {navItems.map((navItem) => (
           <Screen

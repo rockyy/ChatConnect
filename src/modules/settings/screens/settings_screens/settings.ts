@@ -3,5 +3,5 @@ export const Settings = [
   {title: 'Suggestion and Feedback', icon: 'feedback'},
   {title: 'Tell a Friend', icon: 'share'},
   {title: 'Rate in Play Store', icon: 'rating'},
-  {title: 'Version', icon: undefined},
+  {title: 'Version : 1.1', icon: undefined},
 ];
