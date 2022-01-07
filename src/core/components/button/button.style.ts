@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 14,
     marginLeft: 20,
     marginRight: 20,
-    backgroundColor: 'rgba(95,255,51,1)',
+    backgroundColor: 'rgba(155,249,88,1)',
     borderRadius: 4,
   },
 });

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Image} from 'react-native';
-import Images from '../../../assets/images/images';
+import Images from '@assets/images/images';
 
 export type IconProps = {
-  color: string;
+  color?: string;
   size: number;
   icon: string;
 };

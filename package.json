@@ -11,16 +11,21 @@
     "lint_fix": "prettier --write . --ext .js,.jsx,.ts,.tsx && eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
+    "@react-native-masked-view/masked-view": "^0.2.6",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
+    "@react-navigation/stack": "^6.0.11",
     "i18next": "^21.6.4",
     "immer": "^9.0.7",
     "react": "17.0.2",
     "react-i18next": "^11.15.2",
     "react-native": "0.66.4",
+    "react-native-device-country": "^1.0.2",
+    "react-native-gesture-handler": "^2.1.0",
     "react-native-phone-number-input": "^2.1.0",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.10.1"
+    "react-native-screens": "^3.10.1",
+    "react-native-webview": "^11.15.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
