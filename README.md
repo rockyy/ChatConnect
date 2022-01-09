@@ -10,6 +10,9 @@ Chat Connect gives them all a super-easy way who want to start chatting without 
 <a href="https://play.google.com/store/apps/details?id=gigcoda.chatconnect" target="_blank"><img src="https://github.com/rockyy/ChatConnect/blob/main/src/assets/images/google-play-badge.png" alt="Chat Connect" style="height: 160px !important;width: 413px !important;" ></a>
 
 
+## Screenshot
+<img src="https://github.com/rockyy/ChatConnect/blob/main/src/screenshot/connect.jpg" width="220" height="458" />      <img src="https://github.com/rockyy/ChatConnect/blob/main/src/screenshot/settings.jpg" width="220" height="458" />
+
 
 ## License
 
