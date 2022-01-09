@@ -7,18 +7,20 @@ import {AppLayout, OpenURL, Icon} from '@core/components';
 import {TabNavigatorParamsList} from '@core/interfaces';
 import {config} from '@core/config';
 import {styles} from './settings_screen.style';
-import {Settings} from './settings';
+import {AppSettings, Settings, SettingsType} from './settings';
 
 export interface SettingsProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Settings'>;
 }
 
 export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
-  const {t} = useTranslation(['connect', 'common']);
-  const SettingsItem = useCallback(
-    ({title, icon, onPress}): JSX.Element => (
+  const {t} = useTranslation('settings');
+  const SettingsItem = useCallback(({title, icon, type, onPress}): JSX.Element => {
+    const appVersion = '1.1';
+    const settingsText = type === 'VERSION' ? `${t(title)} ${appVersion}` : t(title);
+    return (
       <View style={styles.settingsContainer}>
-        <TouchableOpacity style={styles.action} onPress={() => onPress(title)}>
+        <TouchableOpacity style={styles.action} onPress={() => onPress(type)}>
           {icon && (
             <View style={styles.imageContainer}>
               <Icon icon={icon} size={42} />
@@ -26,14 +28,14 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
           )}
           <View style={styles.content}>
             <View>
-              <Text style={styles.settingsText}>{title}</Text>
+              <Text style={styles.settingsText}>{settingsText}</Text>
             </View>
           </View>
         </TouchableOpacity>
       </View>
-    ),
-    [],
-  );
+    )},
+  [],
+);
 
   const onShare = async (): Promise<void> => {
     try {
@@ -52,13 +54,15 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
     }
   };
 
-  const itemClickHandler = (title: string): void => {
-    console.log(`itemClickHandler :${title}`);
-    switch (title) {
-      case 'Privacy Policy':
+  const itemClickHandler = (setting: SettingsType): void => {
+    switch (setting) {
+      case 'PRIVACY':
         navigation.navigate('Privacy');
         break;
-      case 'Suggestion and Feedback':
+      case 'LANGUAGE':
+        navigation.navigate('Language');
+        break;
+      case 'FEEDBACK':
         {
           const {supportEmail} = config.settings;
           const emailUri = `mailto:${supportEmail}?subject=Suggestion and Feedback`;
@@ -69,10 +73,10 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
           });
         }
         break;
-      case 'Tell a Friend':
+      case 'SHARE':
         onShare();
         break;
-      case 'Rate in Play Store':
+      case 'RATE':
         {
           const {playStoreUrl} = config.settings;
           OpenURL(playStoreUrl).then((status: boolean) => {
@@ -82,14 +86,16 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
           });
         }
         break;
-      case 'Version':
+      case 'VERSION':
         break;
       default:
         break;
     }
   };
   const renderItem = useCallback(
-    ({item}) => <SettingsItem title={item.title} icon={item.icon} onPress={itemClickHandler} />,
+    ({item}: AppSettings) => (
+      <SettingsItem title={item.title} icon={item.icon} type={item.type} onPress={itemClickHandler} />
+    ),
     [],
   );
 

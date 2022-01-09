@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {SettingsScreen, Privacy} from '@settings/screens';
+import {SettingsScreen, Privacy, Language} from '@settings/screens';
 
 const SettingsStack = createStackNavigator();
 
@@ -14,6 +14,7 @@ export const SettingsNavigator: React.FC = () => {
       }}>
       <Screen name='Settings' component={SettingsScreen} options={{title: ''}} />
       <Screen name='Privacy' component={Privacy} />
+      <Screen name='Language' component={Language} />
     </Navigator>
   );
 };

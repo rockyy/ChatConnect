@@ -5,6 +5,7 @@ const images = {
   feedback: require('./feedback.png'),
   privacy: require('./privacy.png'),
   rating: require('./rating.png'),
+  translate: require('./translate.png'),
 };
 
 export default images;
