@@ -6,11 +6,11 @@ import {TabNavigatorParamsList} from '@core/interfaces';
 import {AppLayout, LoadingScreen} from '@core/components';
 import {styles} from './settings_screen.style';
 
-interface ProfileProps {
+interface PrivacyProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Privacy'>;
 }
 
-export const Privacy: React.FC<ProfileProps> = ({navigation}) => {
+export const Privacy: React.FC<PrivacyProps> = ({navigation}) => {
   const {privacyUrl} = config.settings;
   return (
     <AppLayout style={styles.container}>

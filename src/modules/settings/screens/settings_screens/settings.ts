@@ -1,7 +1,16 @@
-export const Settings = [
-  {title: 'Privacy Policy', icon: 'privacy'},
-  {title: 'Suggestion and Feedback', icon: 'feedback'},
-  {title: 'Tell a Friend', icon: 'share'},
-  {title: 'Rate in Play Store', icon: 'rating'},
-  {title: 'Version : 1.1', icon: undefined},
+export type SettingsType = 'PRIVACY' | 'LANGUAGE' | 'FEEDBACK' | 'SHARE' | 'RATE' | 'VERSION';
+
+export type AppSettings = {
+  title: string;
+  icon: string | undefined;
+  type: SettingsType;
+};
+
+export const Settings: AppSettings[] = [
+  {title: 'privacy policy', icon: 'privacy', type: 'PRIVACY'},
+  {title: 'language', icon: 'translate', type: 'LANGUAGE'},
+  {title: 'suggestion and feedback', icon: 'feedback', type: 'FEEDBACK'},
+  {title: 'tell a friend', icon: 'share', type: 'SHARE'},
+  {title: 'rate in play store', icon: 'rating', type: 'RATE'},
+  {title: 'version', icon: undefined, type: 'VERSION'},
 ];
