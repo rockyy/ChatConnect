@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, {Fragment} from 'react';
 import {SafeAreaView, View, ViewProps} from 'react-native';
 

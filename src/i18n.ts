@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import commonEn from '@assets/jsons/locales/en/common.json';
 import connectEn from '@assets/jsons/locales/en/connect.json';
@@ -9,7 +9,7 @@ import settingsSV from '@assets/jsons/locales/sv/settings.json';
 import {config} from '@core/config';
 
 export const initializeI18n = async (): Promise<void> => {
-  await i18next.use(initReactI18next).init({
+  await i18n.use(initReactI18next).init({
     compatibilityJSON: 'v3',
     lng: config.defaultLang,
     fallbackLng: config.defaultLang,

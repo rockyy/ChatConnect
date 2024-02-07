@@ -12,9 +12,13 @@ export const SettingsNavigator: React.FC = () => {
       screenOptions={{
         headerShown: true,
       }}>
-      <Screen name='Settings' component={SettingsScreen} options={{title: ''}} />
-      <Screen name='Privacy' component={Privacy} />
-      <Screen name='Language' component={Language} />
+      <Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{title: ''}}
+      />
+      <Screen name="Privacy" component={Privacy} />
+      <Screen name="Language" component={Language} />
     </Navigator>
   );
 };

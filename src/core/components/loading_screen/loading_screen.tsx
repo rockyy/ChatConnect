@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import {View, ActivityIndicator} from 'react-native';
 import {styles} from './loading_screen.styles';
@@ -11,7 +10,7 @@ export const LoadingScreen = (props: Props): JSX.Element => {
   const {backgroundColor} = props;
   return (
     <View style={[styles.default, {backgroundColor}]}>
-      <ActivityIndicator size='large' />
+      <ActivityIndicator size="large" />
     </View>
   );
 };

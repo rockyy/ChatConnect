@@ -12,8 +12,8 @@ const SettingsNavigator: React.FC = () => {
       screenOptions={{
         headerShown: true,
       }}>
-      <Screen name='Settings' component={SettingsScreen} />
-      <Screen name='Privacy' component={Privacy} />
+      <Screen name="Settings" component={SettingsScreen} />
+      <Screen name="Privacy" component={Privacy} />
     </Navigator>
   );
 };

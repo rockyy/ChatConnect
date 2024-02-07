@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, {useState, useRef, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import PhoneInput from 'react-native-phone-number-input';
@@ -29,7 +28,9 @@ export const ConnectScreen = (): JSX.Element => {
       Alert.alert(`${text} ${phoneNumberWithDialCode}`);
     } else {
       const {URL} = config.connect;
-      const whatsappUri = `${URL}?phone=${phoneNumberWithDialCode}&text=${message}`;
+      const whatsappUri = encodeURI(
+        `${URL}?phone=${phoneNumberWithDialCode}&text=${message}`,
+      );
 
       OpenURL(whatsappUri).then((status: boolean) => {
         if (!status) {
@@ -50,18 +51,22 @@ export const ConnectScreen = (): JSX.Element => {
         ref={phoneInput}
         defaultValue={phoneNumber}
         defaultCode={countryCode}
-        layout='first'
-        onChangeText={(text) => {
+        layout="first"
+        onChangeText={text => {
           setPhoneNumber(text);
         }}
-        onChangeFormattedText={(text) => {
+        onChangeFormattedText={text => {
           setPhoneNumberWithDialCode(text);
         }}
         containerStyle={styles.phoneInput}
         withShadow
         autoFocus
       />
-      <TextArea value={message} handleChange={handleMessage} placeholder={t('message')} />
+      <TextArea
+        value={message}
+        handleChange={handleMessage}
+        placeholder={t('message')}
+      />
       <Button handleClick={onConnectClick} text={t('start chat')} />
     </AppLayout>
   );

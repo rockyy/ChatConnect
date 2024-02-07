@@ -19,12 +19,14 @@ export const Navigation = (props: Props): JSX.Element => {
         initialRouteName={navItems[0].name}
         screenOptions={({route}) => ({
           // eslint-disable-next-line react/no-unstable-nested-components
-          tabBarIcon: ({color}) => <Icon icon={route.name} size={42} color={color} />,
+          tabBarIcon: ({color}) => (
+            <Icon icon={route.name} size={42} color={color} />
+          ),
           tabBarActiveTintColor: 'rgba(155,249,88,1)',
           tabBarInactiveTintColor: 'gray',
           headerShown: route.name === 'connect',
         })}>
-        {navItems.map((navItem) => (
+        {navItems.map(navItem => (
           <Screen
             key={navItem.name}
             name={navItem.name}

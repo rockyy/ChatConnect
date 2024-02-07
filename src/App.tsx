@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Navigation, SettingsNavigator, RootLayout, LoadingScreen} from '@core/components';
+import {
+  Navigation,
+  SettingsNavigator,
+  RootLayout,
+  LoadingScreen,
+} from '@core/components';
 import {NavItem} from '@core/interfaces';
 import {ConnectScreen} from '@connect/screens';
 import {initializeI18n} from '@app/i18n';
