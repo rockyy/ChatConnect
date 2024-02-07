@@ -12,7 +12,13 @@ export const TextArea = (props: TextAreaProps): JSX.Element => {
   const {value, placeholder, handleChange} = props;
   return (
     <View elevation={10} style={styles.container}>
-      <TextInput style={styles.input} onChangeText={handleChange} value={value} placeholder={placeholder} multiline />
+      <TextInput
+        style={styles.input}
+        onChangeText={handleChange}
+        value={value}
+        placeholder={placeholder}
+        multiline
+      />
     </View>
   );
 };

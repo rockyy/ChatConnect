@@ -12,7 +12,7 @@ interface LanguageProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Language'>;
 }
 
-export const Language: React.FC<LanguageProps> = ({navigation}) => {
+export const Language: React.FC<LanguageProps> = ({}) => {
   const {i18n} = useTranslation('settings');
   const {languages} = config;
 
@@ -23,7 +23,9 @@ export const Language: React.FC<LanguageProps> = ({navigation}) => {
   const LanguageItem = useCallback(
     ({languageId, name, onPress}): JSX.Element => (
       <View style={styles.languageItem}>
-        <TouchableOpacity style={styles.action} onPress={() => onPress(languageId)}>
+        <TouchableOpacity
+          style={styles.action}
+          onPress={() => onPress(languageId)}>
           <Text style={styles.languageText}>{name}</Text>
         </TouchableOpacity>
       </View>
@@ -32,7 +34,13 @@ export const Language: React.FC<LanguageProps> = ({navigation}) => {
   );
 
   const renderItem = useCallback(
-    ({item}) => <LanguageItem name={item.name} languageId={item.id} onPress={changeLanguage} />,
+    ({item}) => (
+      <LanguageItem
+        name={item.name}
+        languageId={item.id}
+        onPress={changeLanguage}
+      />
+    ),
     [],
   );
 
@@ -41,7 +49,7 @@ export const Language: React.FC<LanguageProps> = ({navigation}) => {
       <FlatList
         style={styles.languageList}
         data={languages}
-        keyExtractor={(item) => `${item.id}`}
+        keyExtractor={item => `${item.id}`}
         renderItem={renderItem}
       />
     </AppLayout>

@@ -1,6 +1,12 @@
-/* eslint-disable no-console */
 import React, {useCallback} from 'react';
-import {Text, FlatList, TouchableOpacity, View, Alert, Share} from 'react-native';
+import {
+  Text,
+  FlatList,
+  TouchableOpacity,
+  View,
+  Alert,
+  Share,
+} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {AppLayout, OpenURL, Icon} from '@core/components';
@@ -15,28 +21,30 @@ export interface SettingsProps {
 
 export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
   const {t} = useTranslation(['settings']);
-
-  const SettingsItem = useCallback(({title, icon, type, onPress}): JSX.Element => {
-    const appVersion = '1.2';
-    const settingsText = type === 'VERSION' ? `${t(title)} ${appVersion}` : t(title);
-    return (
-      <View style={styles.settingsContainer}>
-        <TouchableOpacity style={styles.action} onPress={() => onPress(type)}>
-          {icon && (
-            <View style={styles.imageContainer}>
-              <Icon icon={icon} size={42} />
+  const SettingsItem = useCallback(
+    ({title, icon, type, onPress}): JSX.Element => {
+      const appVersion = '1.2';
+      const settingsText =
+        type === 'VERSION' ? `${t(title)} ${appVersion}` : t(title);
+      return (
+        <View style={styles.settingsContainer}>
+          <TouchableOpacity style={styles.action} onPress={() => onPress(type)}>
+            {icon && (
+              <View style={styles.imageContainer}>
+                <Icon icon={icon} size={42} />
+              </View>
+            )}
+            <View style={styles.content}>
+              <View>
+                <Text style={styles.settingsText}>{settingsText}</Text>
+              </View>
             </View>
-          )}
-          <View style={styles.content}>
-            <View>
-              <Text style={styles.settingsText}>{settingsText}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-      </View>
-    )},
-  [],
-);
+          </TouchableOpacity>
+        </View>
+      );
+    },
+    [],
+  );
 
   const onShare = async (): Promise<void> => {
     try {
@@ -95,7 +103,12 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
   };
   const renderItem = useCallback(
     ({item}: AppSettings) => (
-      <SettingsItem title={item.title} icon={item.icon} type={item.type} onPress={itemClickHandler} />
+      <SettingsItem
+        title={item.title}
+        icon={item.icon}
+        type={item.type}
+        onPress={itemClickHandler}
+      />
     ),
     [],
   );

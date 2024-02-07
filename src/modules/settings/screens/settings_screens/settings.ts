@@ -1,4 +1,10 @@
-export type SettingsType = 'PRIVACY' | 'LANGUAGE' | 'FEEDBACK' | 'SHARE' | 'RATE' | 'VERSION';
+export type SettingsType =
+  | 'PRIVACY'
+  | 'LANGUAGE'
+  | 'FEEDBACK'
+  | 'SHARE'
+  | 'RATE'
+  | 'VERSION';
 
 export type AppSettings = {
   title: string;
