@@ -77,7 +77,7 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
           const emailUri = `mailto:${supportEmail}?subject=Suggestion and Feedback`;
           OpenURL(emailUri).then((status: boolean) => {
             if (!status) {
-              Alert.alert(t('Email client not installed'));
+              Alert.alert(t('email client not installed'));
             }
           });
         }
@@ -90,7 +90,7 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
           const {playStoreUrl} = config.settings;
           OpenURL(playStoreUrl).then((status: boolean) => {
             if (!status) {
-              Alert.alert(t('Play store not installed'));
+              Alert.alert(t('play store not installed'));
             }
           });
         }
