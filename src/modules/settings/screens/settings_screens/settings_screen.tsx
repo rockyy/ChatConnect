@@ -20,7 +20,7 @@ export interface SettingsProps {
 }
 
 export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
-  const {t} = useTranslation('settings');
+  const {t} = useTranslation(['settings']);
   const SettingsItem = useCallback(
     ({title, icon, type, onPress}): JSX.Element => {
       const appVersion = '1.2';

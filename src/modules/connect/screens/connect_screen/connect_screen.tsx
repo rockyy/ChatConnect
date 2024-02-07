@@ -51,6 +51,7 @@ export const ConnectScreen = (): JSX.Element => {
         ref={phoneInput}
         defaultValue={phoneNumber}
         defaultCode={countryCode}
+        placeholder={t('phone number')}
         layout="first"
         onChangeText={text => {
           setPhoneNumber(text);
