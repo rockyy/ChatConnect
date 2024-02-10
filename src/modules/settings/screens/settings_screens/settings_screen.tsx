@@ -1,50 +1,19 @@
-import React, {useCallback} from 'react';
-import {
-  Text,
-  FlatList,
-  TouchableOpacity,
-  View,
-  Alert,
-  Share,
-} from 'react-native';
+import React from 'react';
+import {FlatList, Alert, Share} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
-import {AppLayout, OpenURL, Icon} from '@core/components';
+import {AppLayout, OpenURL} from '@core/components';
 import {TabNavigatorParamsList} from '@core/interfaces';
 import {config} from '@core/config';
 import {styles} from './settings_screen.style';
-import {AppSettings, Settings, SettingsType} from './settings';
-
+import {Settings, SettingsType} from './settings';
+import {SettingsItem} from './SettingsItem';
 export interface SettingsProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Settings'>;
 }
 
 export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
   const {t} = useTranslation(['settings']);
-  const SettingsItem = useCallback(
-    ({title, icon, type, onPress}): JSX.Element => {
-      const appVersion = '1.2';
-      const settingsText =
-        type === 'VERSION' ? `${t(title)} ${appVersion}` : t(title);
-      return (
-        <View style={styles.settingsContainer}>
-          <TouchableOpacity style={styles.action} onPress={() => onPress(type)}>
-            {icon && (
-              <View style={styles.imageContainer}>
-                <Icon icon={icon} size={42} />
-              </View>
-            )}
-            <View style={styles.content}>
-              <View>
-                <Text style={styles.settingsText}>{settingsText}</Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-        </View>
-      );
-    },
-    [],
-  );
 
   const onShare = async (): Promise<void> => {
     try {
@@ -101,25 +70,21 @@ export const SettingsScreen: React.FC<SettingsProps> = ({navigation}) => {
         break;
     }
   };
-  const renderItem = useCallback(
-    ({item}: AppSettings) => (
-      <SettingsItem
-        title={item.title}
-        icon={item.icon}
-        type={item.type}
-        onPress={itemClickHandler}
-      />
-    ),
-    [],
-  );
 
   return (
     <AppLayout style={styles.container}>
       <FlatList
         style={styles.settingList}
         data={Settings}
-        keyExtractor={(item, index) => `${item.title}-${index}`}
-        renderItem={renderItem}
+        keyExtractor={(item, index) => item.title + item.type + index}
+        renderItem={({item}) => (
+          <SettingsItem
+            title={item.title}
+            icon={item.icon}
+            type={item.type}
+            onPress={() => itemClickHandler(item.type)}
+          />
+        )}
       />
     </AppLayout>
   );

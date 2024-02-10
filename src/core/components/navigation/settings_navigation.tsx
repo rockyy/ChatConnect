@@ -17,7 +17,7 @@ export const SettingsNavigator: React.FC = () => {
       <Screen
         name="Settings"
         component={SettingsScreen}
-        options={{headerTitle: ''}}
+        options={{headerTitle: 'Chat Connect'}}
       />
       <Screen
         name="Privacy"
