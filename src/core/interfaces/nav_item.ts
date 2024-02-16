@@ -10,4 +10,6 @@ export interface NavItem {
 export type TabNavigatorParamsList = {
   Connect: undefined;
   Settings: undefined;
+  Privacy: undefined;
+  Language: undefined;
 };

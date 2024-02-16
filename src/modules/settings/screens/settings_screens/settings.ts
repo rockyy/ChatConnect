@@ -6,13 +6,13 @@ export type SettingsType =
   | 'RATE'
   | 'VERSION';
 
-export type AppSettings = {
+export type AppSetting = {
   title: string;
   icon: string | undefined;
   type: SettingsType;
 };
 
-export const Settings: AppSettings[] = [
+export const Settings: AppSetting[] = [
   {title: 'privacy policy', icon: 'privacy', type: 'PRIVACY'},
   {title: 'language', icon: 'translate', type: 'LANGUAGE'},
   {title: 'suggestion and feedback', icon: 'feedback', type: 'FEEDBACK'},
